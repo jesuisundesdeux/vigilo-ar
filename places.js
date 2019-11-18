@@ -56,7 +56,7 @@ window.onload = () => {
                     const latitude = obs.coordinates_lat;
                     const longitude = obs.coordinates_lon;
 
-                    const image = new Image();
+                    const image = document.createElement('img');
                     image.setAttribute('src', `https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200`);
                     image.setAttribute('id', obs.token);
                     image.Attribute('crossorigin',"anonymous");
