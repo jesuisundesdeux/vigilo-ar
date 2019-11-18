@@ -59,7 +59,7 @@ window.onload = () => {
                     const image = document.createElement('img');
                     image.setAttribute('src', `https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200`);
                     image.setAttribute('id', obs.token);
-                    image.Attribute('crossorigin',"anonymous");
+                    image.setAttribute('crossorigin',"anonymous");
                     assets.appendChild(image);
                      
                     const icon = document.createElement('a-image');
