@@ -56,8 +56,8 @@ window.onload = () => {
                     const longitude = obs.coordinates_lon;
 
                     const image = document.createElement('img');
-                    image.setAttribute('src',`https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200`);
-                    image.setAttribute('id', obs.token);
+                    image.src = `https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200`;
+                    image.id = obs.token;
                     assets.appendChild(image);
                      
                     const icon = document.createElement('a-image');
