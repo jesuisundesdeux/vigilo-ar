@@ -46,6 +46,8 @@ window.onload = () => {
     // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
 
+        const assets = document.createElement('a-assets');
+        scene.appendChild(assets);
         // than use it to load from remote APIs some places nearby
         loadPlaces(position.coords)
             .then((observations) => {
@@ -53,11 +55,15 @@ window.onload = () => {
                     const latitude = obs.coordinates_lat;
                     const longitude = obs.coordinates_lon;
 
-                    // add place icon
+                    const image = document.createElement('img');
+                    image.setAttribute('src',"https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200");
+                    image.setAttribute('id', obs.token);
+                    assets.appendChild(image);
+                     
                     const icon = document.createElement('a-image');
                     icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     icon.setAttribute('name', obs.token);
-                    icon.setAttribute('src', "https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200");
+                    icon.setAttribute('src', "#${obs.token}");
 
                     // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
                     icon.setAttribute('scale', '20, 20');
