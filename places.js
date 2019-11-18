@@ -48,9 +48,9 @@ window.onload = () => {
 
         // than use it to load from remote APIs some places nearby
         loadPlaces(position.coords)
-            .then((observsations) => {
+            .then((observations) => {
                 observations.forEach((obs) => {
-                    const latitude = obs.coordinates_lat.trim();
+                    const latitude = obs.coordinates_lat;
                     const longitude = obs.coordinates_lon;
 
                     // add place icon
