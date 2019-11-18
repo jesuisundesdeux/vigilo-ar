@@ -13,19 +13,20 @@ const loadPlaces = function(coords) {
     ];
 
     if (method === 'api') {
-        return loadPlaceFromAPIs(coords);
+        return loadPlaceFromAPIs();
     }
 
     return PLACES;
 };
 
 // getting places from REST APIs
-function loadPlaceFromAPIs(position) {
+function loadPlaceFromAPIs() {
     const params = {
         radius: 300,    // search places not farther than this value (in meters)
     };
 
-    const endpoint = `https://api-vigilo.jesuisundesdeux.org/get_issues.php?scope=34_montpellier&lat=${position.latitude}&lon=${position.longitude}&radius=${params.radius}`;
+    /* const endpoint = `https://api-vigilo.jesuisundesdeux.org/get_issues.php?scope=34_montpellier&lat=${position.latitude}&lon=${position.longitude}&radius=${params.radius}`; */
+    const endpoint = `https://api-vigilo.jesuisundesdeux.org/get_issues.php?scope=34_montpellier&lat=43.607818&lon=3.869305&radius=${params.radius}`;
 
     return fetch(endpoint)
         .then((res) => {
@@ -43,13 +44,13 @@ function loadPlaceFromAPIs(position) {
 window.onload = () => {
     const scene = document.querySelector('a-scene');
 
-    // first get current user location
+/*    // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
-
+*/
         const assets = document.createElement('a-assets');
         scene.appendChild(assets);
         // than use it to load from remote APIs some places nearby
-        loadPlaces(position.coords)
+        loadPlaces()
             .then((observations) => {
                 observations.forEach((obs) => {
                     const latitude = obs.coordinates_lat;
@@ -97,12 +98,12 @@ window.onload = () => {
                     scene.appendChild(icon);
                 });
             })
-    },
+  /*  },
         (err) => console.error('Error in retrieving position', err),
         {
             enableHighAccuracy: true,
             maximumAge: 0,
             timeout: 27000,
         }
-    );
+    ); */
 };
