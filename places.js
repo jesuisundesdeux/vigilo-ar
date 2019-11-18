@@ -55,10 +55,10 @@ window.onload = () => {
 
                     // add place icon
                     const icon = document.createElement('a-image');
+                    const imgsrc = `https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200`;
                     icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     icon.setAttribute('name', obs.token);
-/*                    icon.setAttribute('src', `https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200`);*/
-                    icon.src = `https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200`;
+                    icon.setAttribute('src', imgsrc);
 
                     // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
                     icon.setAttribute('scale', '20, 20');
