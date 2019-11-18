@@ -54,26 +54,15 @@ window.onload = () => {
                     const longitude = obs.coordinates_lon;
 
                     // add place icon
-                    const asseticon = document.createElement('a-assets');
-                    asseticon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                    
-                    const image = document.createElement('img');
-                    image.setAttribute('src',"https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200");
-                     
-                    asseticon.setAttribute('scale', '20, 20');
-
-                    container.appendChild(image);
-
-                   /* const icon = document.createElement('a-image');
+                    const icon = document.createElement('a-image');
                     icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     icon.setAttribute('name', obs.token);
                     icon.setAttribute('src', "https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200");
 
                     // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
                     icon.setAttribute('scale', '20, 20');
-                    */
 
-                    asseticon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
+                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
 
                     const clickListener = function(ev) {
                         ev.stopPropagation();
@@ -99,7 +88,7 @@ window.onload = () => {
 
                     icon.addEventListener('click', clickListener);
 
-                    scene.appendChild(asseticon);
+                    scene.appendChild(icon);
                 });
             })
     },
