@@ -62,12 +62,10 @@ window.onload = () => {
                     image.setAttribute('crossorigin',"anonymous");
                     assets.appendChild(image);
                     
-                    const icon = document.createElement('a-entity');
+                    const icon = document.createElement('a-image');
                     icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                    icon.setAttribute('height', 1);
-                    icon.setAttribute('width' , 1);
-                    icon.setAttribute('material', `shader: flat; src: #${obs.token}`);
                     icon.setAttribute('name', obs.token);
+                    icon.setAttribute('src', `#${obs.token}`);
 
                     // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
                     icon.setAttribute('scale', '20, 20');
