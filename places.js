@@ -73,7 +73,7 @@ window.onload = () => {
                     icon.setAttribute('scale', '20, 20');
                     */
 
-                    icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
+                    asseticon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
 
                     const clickListener = function(ev) {
                         ev.stopPropagation();
@@ -99,7 +99,7 @@ window.onload = () => {
 
                     icon.addEventListener('click', clickListener);
 
-                    scene.appendChild(icon);
+                    scene.appendChild(asseticon);
                 });
             })
     },
