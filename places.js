@@ -57,7 +57,8 @@ window.onload = () => {
                     const icon = document.createElement('a-image');
                     icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     icon.setAttribute('name', obs.token);
-                    icon.setAttribute('src', "https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200");
+                    /*icon.setAttribute('src', "https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200");*/
+                    icon.setAttribute('src', "https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg");
 
                     // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
                     icon.setAttribute('scale', '20, 20');
