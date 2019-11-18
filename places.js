@@ -58,7 +58,7 @@ window.onload = () => {
                     asseticon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     
                     const image = document.createElement('img');
-                    image.setAttribute('src',"https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg");
+                    image.setAttribute('src',"https://api-vigilo.jesuisundesdeux.org/generate_panel.php?token=${obs.token}&s=200");
                      
                     asseticon.setAttribute('scale', '20, 20');
 
