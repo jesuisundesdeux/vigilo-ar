@@ -25,10 +25,7 @@ function loadPlaceFromAPIs(position) {
         radius: 300,    // search places not farther than this value (in meters)
     };
 
-    const endpoint = `https://api-vigilo.jesuisundesdeux.org/get_issues.php?scope=34_montpellier
-        &lat=${position.latitude}
-        &lon=${position.longitude}
-        &radius=${params.radius}`;
+    const endpoint = `https://api-vigilo.jesuisundesdeux.org/get_issues.php?scope=34_montpellier&lat=${position.latitude}&lon=${position.longitude}&radius=${params.radius}`;
 
     return fetch(endpoint)
         .then((res) => {
