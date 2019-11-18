@@ -50,7 +50,7 @@ window.onload = () => {
         loadPlaces(position.coords)
             .then((observsations) => {
                 observations.forEach((obs) => {
-                    const latitude = obs.coordinates_lat;
+                    const latitude = obs.coordinates_lat.trim();
                     const longitude = obs.coordinates_lon;
 
                     // add place icon
